@@ -20,10 +20,14 @@ def basic_setting(driver):
     # send email password
     driver.find_element(By.ID,"MainContent_TextBox2").send_keys(email_pwd)
     driver.find_element(By.ID,"MainContent_Button1").send_keys(Keys.ENTER)
+    # click the apply
     driver.find_element(By.ID,"MainContent_Button2").click()
     # click the court 
     select = Select(driver.find_element(By.ID,"MainContent_DropDownList1"))
-    select.select_by_visible_text("BSK0D籃球場D")
+    select.select_by_visible_text("BSK0A籃球場A")
+    time.sleep(1)
+    # click the next week
+    driver.find_element(By.ID,"MainContent_BtnNextW2").click()
     time.sleep(1)
 
 def borrow_court(driver):
@@ -61,18 +65,16 @@ def borrow_court(driver):
 
 if __name__ == "__main__":
     driver = webdriver.Chrome()
-    stu_id = "Your student ID"
-    email_pwd = "Your email password"
+    stu_id = "your student ID"
+    email_pwd = "your NDHU email password"
     basic_setting(driver)
     current_time = datetime.now()
     print(current_time)
-    target_time = datetime(current_time.year, current_time.month, current_time.day)+timedelta(days=1)
+    target_time = datetime(current_time.year, current_time.month, current_time.day,0,0,3) + timedelta(days=1)
     while current_time < target_time:
         driver.find_element(By.ID,"MainContent_Button1").click()
         current_time = datetime.now()
         print(current_time)
-        time.sleep(0.5) 
+        time.sleep(1) 
     borrow_court(driver)
     print("success")     
-
-    # timedelta(days=1)
