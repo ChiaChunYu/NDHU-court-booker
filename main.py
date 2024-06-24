@@ -16,9 +16,9 @@ def basic_setting(driver):
     driver.get('https://sys.ndhu.edu.tw/gc/sportcenter/SportsFields/Default.aspx')
     driver.maximize_window()
     # send student_id
-    driver.find_element(By.ID,"MainContent_TextBox1").send_keys(stu_id)
+    driver.find_element(By.ID,"MainContent_TXTUSERNO").send_keys(stu_id)
     # send email password
-    driver.find_element(By.ID,"MainContent_TextBox2").send_keys(email_pwd)
+    driver.find_element(By.ID,"MainContent_TXTPWD").send_keys(email_pwd)
     driver.find_element(By.ID,"MainContent_Button1").send_keys(Keys.ENTER)
     # click the apply
     driver.find_element(By.ID,"MainContent_Button2").click()
@@ -65,8 +65,8 @@ def borrow_court(driver):
 
 if __name__ == "__main__":
     driver = webdriver.Chrome()
-    stu_id = "your student ID"
-    email_pwd = "your NDHU email password"
+    stu_id = "411021390"
+    email_pwd = "jimmy92223"
     basic_setting(driver)
     current_time = datetime.now()
     print(current_time)
