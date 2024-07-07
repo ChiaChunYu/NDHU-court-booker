@@ -65,8 +65,8 @@ def borrow_court(driver):
 
 if __name__ == "__main__":
     driver = webdriver.Chrome()
-    stu_id = "411021390"
-    email_pwd = "jimmy92223"
+    stu_id = "your_student_id"
+    email_pwd = "your_email_password"
     basic_setting(driver)
     current_time = datetime.now()
     print(current_time)
